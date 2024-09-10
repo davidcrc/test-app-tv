@@ -3,9 +3,13 @@ import { Menu } from "./components/menu/menu";
 import { Content } from "./components/content/content";
 import { shuffle } from "lodash";
 import { IAsset } from "./components/content/asset";
+import Panels from "@enact/sandstone/Panels";
+import { Header, Panel } from "@enact/sandstone/Panels";
+import Button from "@enact/sandstone/Button";
 
 const menuItems = [
   "Home",
+  "Dashboard",
   "Movies",
   "TV Shows",
   "Sports",
@@ -100,6 +104,13 @@ function App() {
       <Menu focusKey="MENU" items={menuItems} />
       <Content rows={rows} focusKey="CONTENT" />
     </AppContainer>
+    // <Panels>
+    //   <Panel>
+    //     <Header title="Hello world!" />
+    //     <Button>Click me</Button>
+    //     {/* <Counter /> */}
+    //   </Panel>
+    // </Panels>
   );
 }
 

@@ -28,8 +28,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp tizen/* build && tizen.sh build-web -- build && tizen.sh package -t wgt -s BasicUICert -- build/.buildResult",
-    "deploy": "tizen.sh install -n Empty.wgt -- build/.buildResult",
+    "build": "react-scripts build",
+    "tizen:build": "react-scripts build && cp tizen/* build && tizen.sh build-web -- build && tizen.sh package -t wgt -s BasicUICert -- build/.buildResult",
+    "tizen:deploy": "tizen.sh install -n Empty.wgt -- build/.buildResult",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

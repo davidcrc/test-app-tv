@@ -47,8 +47,7 @@ const SelectedItemBox = styled.div`
 
 const SelectedItemTitle = styled.div`
   position: absolute;
-  bottom: 75px;
-  left: 100px;
+  top: 40%;
   color: white;
   font-size: 27px;
   font-weight: 400;
@@ -78,6 +77,7 @@ export function Content({ rows, focusKey: focusKeyParam }: ContentProps) {
   const [selectedAsset, setSelectedAsset] = React.useState<IAsset | null>(null);
 
   const onAssetPress = React.useCallback((asset: any) => {
+    console.log("onAssetPress", asset);
     setSelectedAsset(asset);
   }, []);
 
@@ -94,7 +94,8 @@ export function Content({ rows, focusKey: focusKeyParam }: ContentProps) {
   return (
     <FocusContext.Provider value={focusKey}>
       <ContentWrapper>
-        <ContentTitle>Norigin Spatial Navigation</ContentTitle>
+        <ContentTitle></ContentTitle>
+
         <SelectedItemWrapper>
           <SelectedItemBox
             color={selectedAsset ? selectedAsset.color : "#565b6b"}
@@ -106,6 +107,7 @@ export function Content({ rows, focusKey: focusKeyParam }: ContentProps) {
               : 'Press "Enter" to select an asset'}
           </SelectedItemTitle>
         </SelectedItemWrapper>
+
         <ScrollingRows ref={ref}>
           <div>
             {rows.map(({ title, assets }) => (

@@ -1,5 +1,7 @@
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Paths } from "../../router/paths/path.routes";
 
 interface MenuItemBoxProps {
   focused: boolean;
@@ -25,7 +27,20 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ label }: MenuItemProps) {
-  const { ref, focused } = useFocusable();
+  const navigate = useNavigate();
+
+  const { ref, focused } = useFocusable({
+    onEnterPress: () => {
+      //
+      if (label === "Home") {
+        navigate(Paths.INDEX);
+      }
+
+      if (label === "Movies") {
+        navigate(Paths.EPISODES);
+      }
+    },
+  });
 
   return (
     <MenuItemBox ref={ref} focused={focused} data-testid="menu-item">

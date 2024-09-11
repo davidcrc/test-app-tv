@@ -72,6 +72,7 @@ export function ContentRow({
     <FocusContext.Provider value={focusKey}>
       <ContentRowWrapper ref={ref}>
         <ContentRowTitle>{rowTitle}</ContentRowTitle>
+
         <ContentRowScrollingWrapper ref={scrollingRef}>
           <ContentRowScrollingContent>
             {assets.map(({ title, color }) => (

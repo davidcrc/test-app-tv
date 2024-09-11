@@ -25,6 +25,7 @@ const MenuWrapper = styled.div<MenuWrapperProps>`
   background-color: ${({ hasFocusedChild }) =>
     hasFocusedChild ? "#4e4181" : "#362C56"};
   padding-top: 37px;
+  padding: 24px;
 `;
 
 interface MenuProps {
@@ -51,7 +52,9 @@ export function Menu({ focusKey: focusKeyParam, items }: MenuProps) {
     isFocusBoundary: false,
     focusKey: focusKeyParam,
     preferredChildFocusKey: undefined,
-    onEnterPress: () => {},
+    onEnterPress: () => {
+      console.log("press me");
+    },
     onEnterRelease: () => {},
     onArrowPress: () => true,
     onFocus: () => {},

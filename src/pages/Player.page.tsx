@@ -35,7 +35,7 @@ const streamingMedia =
 
 const dashMedia = "https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd";
 
-const PlayerPage = () => {
+const PlayerPage = ({ close }: { close?: () => void }) => {
   const navigate = useNavigate();
   const actions = useTVPlayerStore((s) => s.actions);
   // const playing = useTVPlayerStore((s) => s.playing);
@@ -48,7 +48,8 @@ const PlayerPage = () => {
       actions.setPlaying(true);
     },
     onBack: () => {
-      navigate(-1);
+      // navigate(-1);
+      close?.();
     },
   });
 
@@ -56,7 +57,7 @@ const PlayerPage = () => {
     <>
       <TVPlayer
         // url="https://www.youtube.com/watch?v=SkVqJ1SGeL0"
-        url={dashMedia}
+        url={hlsMEdia}
         subTitle={""}
         customButtons={customButtons}
         playing

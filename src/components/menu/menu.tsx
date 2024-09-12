@@ -17,12 +17,11 @@ interface MenuWrapperProps {
 }
 
 const MenuWrapper = styled.div<MenuWrapperProps>`
-  flex: 1;
-  max-width: 246px;
+  min-width: 108px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ hasFocusedChild }) =>
+  // background-color: ${({ hasFocusedChild }) =>
     hasFocusedChild ? "#4e4181" : "#362C56"};
   padding-top: 37px;
   padding: 24px;
@@ -30,10 +29,16 @@ const MenuWrapper = styled.div<MenuWrapperProps>`
 
 interface MenuProps {
   focusKey: string;
-  items: string[];
+  items: {
+    label: string;
+    icon: () => JSX.Element;
+    path: string;
+  }[];
 }
 
 export function Menu({ focusKey: focusKeyParam, items }: MenuProps) {
+  const [selectedKey, setSelectedKey] = React.useState<string | null>(null);
+
   const {
     ref,
     focusSelf,
@@ -46,7 +51,7 @@ export function Menu({ focusKey: focusKeyParam, items }: MenuProps) {
     // updateAllLayouts -- to force update all layouts when needed
   } = useFocusable({
     focusable: true,
-    saveLastFocusedChild: false,
+    saveLastFocusedChild: true,
     trackChildren: true,
     autoRestoreFocus: true,
     isFocusBoundary: false,
@@ -64,15 +69,32 @@ export function Menu({ focusKey: focusKeyParam, items }: MenuProps) {
 
   React.useEffect(() => {
     focusSelf();
-  }, [focusSelf]);
+    // if (selectedKey === null) {
+    // }
+    // console.log("focusKey !== selectedKey", focusKey, selectedKey);
+    // if (focusKey !== selectedKey) {
+    //   setSelectedKey(focusKey);
+    // }
+  }, [focusKey, focusSelf, selectedKey]);
 
   return (
-    <FocusContext.Provider value={focusKey}>
+    <FocusContext.Provider value={focusKey} key={"MENU-CONTEXT"}>
       <MenuWrapper ref={ref} hasFocusedChild={hasFocusedChild}>
-        <h1>Logo</h1>
-        {items.map((item) => (
-          <MenuItem key={item} label={item} />
-        ))}
+        <h1 style={{ color: "white" }}>Logo</h1>
+        <div style={{ marginTop: "100%" }}>
+          {items.map((item) => (
+            <MenuItem
+              key={item.label}
+              item={item}
+              onFocus={() => {
+                focusSelf();
+              }}
+              onSelect={() => {
+                setSelectedKey(item.label);
+              }}
+            />
+          ))}
+        </div>
       </MenuWrapper>
     </FocusContext.Provider>
   );

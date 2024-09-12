@@ -24,6 +24,10 @@ const rows = shuffle([
     title: "Sport",
     assets: assets,
   },
+  {
+    title: "Others",
+    assets: assets,
+  },
 ]);
 
 function Home() {

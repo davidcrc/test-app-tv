@@ -20,6 +20,7 @@ const ContentRowTitle = styled.div`
   font-weight: 700;
   font-family: "Segoe UI";
   padding-left: 60px;
+  padding-top: 12px;
 `;
 
 const ContentRowScrollingWrapper = styled.div`
@@ -28,6 +29,7 @@ const ContentRowScrollingWrapper = styled.div`
   flex-shrink: 1;
   flex-grow: 1;
   padding-left: 60px;
+  padding-top: 12px;
 `;
 
 const ContentRowScrollingContent = styled.div`

@@ -3,8 +3,9 @@ import { Paths } from "./paths/path.routes";
 import AppLayout from "../layout/app-layout/app-layout";
 import HomePage from "../pages/Home.page";
 import SearchPage from "../pages/Search.page";
-import EpisodesPage from "../pages/Episodes.pgae";
+import EpisodesPage from "../pages/Episodes.page";
 import PlayerPage from "../pages/Player.page";
+import SettingsPage from "../pages/Settings.page";
 
 export const AppRoutes: RouteObject[] = [
   {
@@ -13,7 +14,7 @@ export const AppRoutes: RouteObject[] = [
     children: [
       { path: Paths.INDEX, element: <HomePage /> },
       { path: Paths.SEARCH, element: <SearchPage /> },
-      // { path: Paths.SETTINGS, element: <SettingsPage /> },
+      { path: Paths.SETTINGS, element: <SettingsPage /> },
       { path: Paths.EPISODES, element: <EpisodesPage /> },
     ],
   },

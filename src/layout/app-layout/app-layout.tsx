@@ -2,62 +2,60 @@ import styled, { createGlobalStyle } from "styled-components";
 import { Menu } from "../../components/menu/menu";
 import { IAsset } from "../../components/content/asset";
 import { Outlet } from "react-router-dom";
+import { Episodes, Home, Search, Setting } from "../../assets/svg";
+import { Paths } from "../../router/paths/path.routes";
 
 const menuItems = [
-  "Home",
-  "Dashboard",
-  "Movies",
-  "TV Shows",
-  "Sports",
-  "Music",
-  "News",
-  "Kids",
-  "Lifestyle",
-  "Entertainment",
-  "More",
+  { label: "Home", icon: Home, path: Paths.INDEX },
+  { label: "Search", icon: Search, path: Paths.SEARCH },
+  { label: "Collection", icon: Episodes, path: Paths.EPISODES },
+  { label: "Settings", icon: Setting, path: Paths.SETTINGS },
 ];
 
 export const assets: IAsset[] = [
   {
     title: "Asset 1",
-    color: "#714ADD",
+    color: "#019FB8",
   },
   {
     title: "Asset 2",
-    color: "#AB8DFF",
+    color: "#018AA0",
   },
   {
     title: "Asset 3",
-    color: "#512EB0",
+    color: "#017588",
   },
   {
     title: "Asset 4",
-    color: "#714ADD",
+    color: "#015F70",
   },
   {
     title: "Asset 5",
-    color: "#AB8DFF",
+    color: "#01D1A8",
   },
   {
     title: "Asset 6",
-    color: "#512EB0",
+    color: "#01A8D1",
   },
   {
     title: "Asset 7",
-    color: "#714ADD",
+    color: "#0186D1",
   },
   {
     title: "Asset 8",
-    color: "#AB8DFF",
+    color: "#0116D1",
   },
   {
     title: "Asset 9",
-    color: "#512EB0",
+    color: "#0816AC",
   },
 ];
 
 const AppContainer = styled.div`
-  background-color: #221c35;
+  background: rgb(0, 81, 117);
+  background: linear-gradient(19deg, #005175 6%, #003157 27%, #000000 81%);
+  overflow: hidden;
+  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   display: flex;

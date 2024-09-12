@@ -29,6 +29,8 @@ const AssetBox = styled.div<AssetBoxProps>`
   border-color: white;
   border-style: solid;
   border-width: ${({ focused }) => (focused ? "6px" : 0)};
+  transition: transform 0.4s ease-in-out;
+  transform: scale(${({ focused }) => (focused ? "1.1" : "1")});
   box-sizing: border-box;
   border-radius: 7px;
 `;

@@ -1,17 +1,15 @@
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Paths } from "../../router/paths/path.routes";
 
 interface MenuItemBoxProps {
   focused: boolean;
 }
 
 const MenuItemBox = styled.div<MenuItemBoxProps>`
-  width: 171px;
+  width: 48px;
   height: 51px;
-  background-color: #b056ed;
-  border-color: white;
+  border-color: #01b6d1;
   border-style: solid;
   border-width: ${({ focused }) => (focused ? "6px" : 0)};
   box-sizing: border-box;
@@ -20,31 +18,41 @@ const MenuItemBox = styled.div<MenuItemBoxProps>`
   align-items: center;
   justify-content: center;
   margin-bottom: 37px;
+
+  svg {
+    fill: ${({ focused }) => (focused ? "#01B6D1" : "white")};
+    stroke: ${({ focused }) => (focused ? "#01B6D1" : "white")};
+  }
 `;
 
 interface MenuItemProps {
-  label: string;
+  item: {
+    label: string;
+    icon: () => JSX.Element;
+    path: string;
+  };
+  onFocus: () => void;
+  onSelect: () => void;
 }
 
-export function MenuItem({ label }: MenuItemProps) {
+export function MenuItem({
+  item: { label, icon: Icono, path },
+}: MenuItemProps) {
   const navigate = useNavigate();
 
   const { ref, focused } = useFocusable({
-    onEnterPress: () => {
-      //
-      if (label === "Home") {
-        navigate(Paths.INDEX);
-      }
+    saveLastFocusedChild: true,
+    trackChildren: true,
 
-      if (label === "Movies") {
-        navigate(Paths.EPISODES);
-      }
+    onEnterPress: () => {
+      navigate(path);
     },
   });
 
   return (
     <MenuItemBox ref={ref} focused={focused} data-testid="menu-item">
-      {label}
+      {/* {label} */}
+      {<Icono />}
     </MenuItemBox>
   );
 }

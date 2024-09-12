@@ -7,7 +7,7 @@ export const Router = () => {
   return useRoutes([
     // {
     //   path: "/",
-    //   element: <Navigate to={Paths.SEARCH} replace />,
+    //   element: <Navigate to={Paths.HOME} replace />,
     // },
     ...AppRoutes,
     {
@@ -15,7 +15,7 @@ export const Router = () => {
       children: [
         {
           path: "*",
-          element: <Navigate to={Paths.SEARCH} replace />,
+          element: <Navigate to={Paths.INDEX} replace />,
         },
       ],
     },

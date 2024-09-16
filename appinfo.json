@@ -1,0 +1,10 @@
+{
+	"id": "com.domain.app",
+	"version": "1.0.0",
+	"vendor": "RAVN",
+	"type": "web",
+	"main": "index.html",
+	"title": "LDS",
+	"icon": "logo_lds.png",
+	"largeIcon": "large_logo_lds.png"
+}

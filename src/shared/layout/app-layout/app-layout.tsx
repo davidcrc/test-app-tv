@@ -62,12 +62,6 @@ const AppContainer = styled.div`
   flex-direction: row;
 `;
 
-const GlobalStyle = createGlobalStyle`
-  ::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
 export const Main = styled.main`
   box-sizing: border-box;
   width: 100%;
@@ -76,7 +70,6 @@ export const Main = styled.main`
 const AppLayout = () => {
   return (
     <AppContainer>
-      <GlobalStyle />
       <Menu focusKey="MENU" items={menuItems} />
       <Outlet />
     </AppContainer>

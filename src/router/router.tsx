@@ -5,10 +5,6 @@ import { AppRoutes } from "./app.routes";
 
 export const Router = () => {
   return useRoutes([
-    // {
-    //   path: "/",
-    //   element: <Navigate to={Paths.HOME} replace />,
-    // },
     ...AppRoutes,
     {
       path: "*",

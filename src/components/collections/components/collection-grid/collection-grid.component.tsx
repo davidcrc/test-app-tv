@@ -5,9 +5,9 @@ import {
 import { CollectionGridProps } from "./types";
 import { useState } from "react";
 import Modal from "../../../../shared/ui/modal/modal";
-import PlayerPage from "../../../../pages/Player.page";
 import * as S from "./collection-grid.style";
 import { Episode } from "./components/episode";
+import { PlayerPage } from "../../../../pages";
 
 export const CollectionGrid = ({ index, onFocus }: CollectionGridProps) => {
   const { ref, focusKey } = useFocusable({

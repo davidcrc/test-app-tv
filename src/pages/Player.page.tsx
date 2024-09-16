@@ -1,9 +1,9 @@
-const PlayerPage = ({ close }: { close?: () => void }) => {
+import { CustomVideoPlayer } from "../shared/ui/video-player";
+
+export const PlayerPage = ({ close }: { close?: () => void }) => {
   return (
     <>
-      <div></div>
+      <CustomVideoPlayer src="https://media2.ldscdn.org/assets/music/the-power-of-sacred-music/2020-01-0050-sacred-music-videos-my-redeemer-lives-720p-eng.mp4"></CustomVideoPlayer>
     </>
   );
 };
-
-export default PlayerPage;

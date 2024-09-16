@@ -1,45 +1,7 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import * as S from "./video-player.style";
 
-const VideoPlayerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const ControlsWrapper = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Button = styled.button`
-  margin: 0 10px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
-
-const Slider = styled.input`
-  margin: 0 10px;
-  width: 150px;
-`;
-
-const Video = styled.video`
-  width: 600px;
-  height: auto;
-  background-color: black;
-`;
-
-const CustomVideoPlayer: React.FC<{ src: string }> = ({ src }) => {
+export const CustomVideoPlayer: React.FC<{ src: string }> = ({ src }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null); // Tipo específico para video
   const [isPlaying, setIsPlaying] = useState(false); // Estado de reproducción
   const [progress, setProgress] = useState(0); // Progreso del video
@@ -86,22 +48,22 @@ const CustomVideoPlayer: React.FC<{ src: string }> = ({ src }) => {
   };
 
   return (
-    <VideoPlayerWrapper>
-      <Video
+    <S.VideoPlayerWrapper>
+      <S.Video
         ref={videoRef}
         onTimeUpdate={handleProgress}
         src={src} // Cambia por tu archivo de video
         controls={false} // Desactiva los controles nativos
       />
 
-      <ControlsWrapper>
+      <S.ControlsWrapper>
         {/* Botón Play/Pause */}
-        <Button onClick={togglePlayPause}>
+        <S.Button onClick={togglePlayPause}>
           {isPlaying ? "Pause" : "Play"}
-        </Button>
+        </S.Button>
 
         {/* Barra de progreso */}
-        <Slider
+        <S.Slider
           type="range"
           value={progress}
           onChange={handleSeek}
@@ -110,7 +72,7 @@ const CustomVideoPlayer: React.FC<{ src: string }> = ({ src }) => {
         />
 
         {/* Control de volumen */}
-        <Slider
+        <S.Slider
           type="range"
           value={volume}
           onChange={handleVolumeChange}
@@ -118,9 +80,7 @@ const CustomVideoPlayer: React.FC<{ src: string }> = ({ src }) => {
           max="1"
           step="0.1"
         />
-      </ControlsWrapper>
-    </VideoPlayerWrapper>
+      </S.ControlsWrapper>
+    </S.VideoPlayerWrapper>
   );
 };
-
-export default CustomVideoPlayer;

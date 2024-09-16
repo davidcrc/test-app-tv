@@ -31,6 +31,12 @@
     "build": "react-scripts build",
     "tizen:build": "react-scripts build && cp tizen/* build && tizen.sh build-web -- build && tizen.sh package -t wgt -s BasicUICert -- build/.buildResult",
     "tizen:deploy": "tizen.sh install -n Empty.wgt -- build/.buildResult",
+    "webos:build": "react-scripts build && cp appinfo.json ./build/appinfo.json && cp logo_lds.png ./build/logo_lds.png && cp large_logo_lds.png ./build/large_logo_lds.png",
+    "webos:package": "ares-package ./build",
+    "webos:install": "ares-install --device emulator com.domain.app_1.0.0_all.ipk",
+    "webos:uninstall": "ares-install --device emulator --remove com.domain.app",
+    "webos:launch": "ares-launch --device emulator com.domain.app",
+    "webos:inspect": "ares-inspect --device emulator --app com.domain.app --open",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,7 +1,6 @@
-import React from "react";
 import { Content } from "../components/content/content";
 import { shuffle } from "lodash";
-import { assets } from "../layout/app-layout/app-layout";
+import { assets } from "../shared/layout/app-layout/app-layout";
 
 const rows = shuffle([
   {

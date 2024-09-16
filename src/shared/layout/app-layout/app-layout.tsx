@@ -1,9 +1,9 @@
-import styled, { createGlobalStyle } from "styled-components";
 import { Outlet } from "react-router-dom";
 import { Episodes, Home, Search, Setting } from "../../assets/svg";
-import { Menu } from "../../../components/menu/menu";
 import { Paths } from "../../../router/paths/path.routes";
 import { IAsset } from "../../../components/content/asset";
+import * as S from "./app-layout.style";
+import { Menu } from "./components/menu";
 
 const menuItems = [
   { label: "Home", icon: Home, path: Paths.INDEX },
@@ -51,29 +51,11 @@ export const assets: IAsset[] = [
   },
 ];
 
-const AppContainer = styled.div`
-  background: rgb(0, 81, 117);
-  background: linear-gradient(19deg, #005175 6%, #003157 27%, #000000 81%);
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-`;
-
-export const Main = styled.main`
-  box-sizing: border-box;
-  width: 100%;
-`;
-
-const AppLayout = () => {
-  return (
-    <AppContainer>
-      <Menu focusKey="MENU" items={menuItems} />
+export const AppLayout = () => (
+  <S.AppContainer>
+    <Menu focusKey="MENU" items={menuItems} />
+    <S.Content>
       <Outlet />
-    </AppContainer>
-  );
-};
-
-export default AppLayout;
+    </S.Content>
+  </S.AppContainer>
+);

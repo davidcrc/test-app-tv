@@ -1,7 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import { Paths } from "./paths/path.routes";
-import { HomePage } from "../pages";
-import SearchPage from "../pages/Search.page";
+import { HomePage, SearchPage } from "../pages";
 import EpisodesPage from "../pages/Episodes.page";
 import PlayerPage from "../pages/Player.page";
 import SettingsPage from "../pages/Settings.page";

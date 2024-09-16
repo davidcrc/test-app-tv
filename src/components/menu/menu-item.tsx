@@ -50,7 +50,12 @@ export function MenuItem({
   });
 
   return (
-    <MenuItemBox ref={ref} focused={focused} data-testid="menu-item">
+    <MenuItemBox
+      id="menu-item"
+      ref={ref}
+      focused={focused}
+      data-testid="menu-item"
+    >
       {/* {label} */}
       {<Icono />}
     </MenuItemBox>

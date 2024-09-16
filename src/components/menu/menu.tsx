@@ -13,7 +13,7 @@ init({
 });
 
 interface MenuWrapperProps {
-  hasFocusedChild: boolean;
+  hasfocusedchild: boolean;
 }
 
 const MenuWrapper = styled.div<MenuWrapperProps>`
@@ -21,8 +21,8 @@ const MenuWrapper = styled.div<MenuWrapperProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: ${({ hasFocusedChild }) =>
-    hasFocusedChild ? "#4e4181" : "#362C56"};
+  // background-color: ${({ hasfocusedchild }) =>
+    hasfocusedchild ? "#4e4181" : "#362C56"};
   padding-top: 37px;
   padding: 24px;
 `;
@@ -79,7 +79,7 @@ export function Menu({ focusKey: focusKeyParam, items }: MenuProps) {
 
   return (
     <FocusContext.Provider value={focusKey} key={"MENU-CONTEXT"}>
-      <MenuWrapper ref={ref} hasFocusedChild={hasFocusedChild}>
+      <MenuWrapper ref={ref} hasfocusedchild={hasFocusedChild}>
         <h1 style={{ color: "white" }}>Logo</h1>
         <div style={{ marginTop: "100%" }}>
           {items.map((item) => (

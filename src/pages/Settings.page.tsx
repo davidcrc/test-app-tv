@@ -1,9 +1,11 @@
-import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
-import React from "react";
+import {
+  FocusContext,
+  useFocusable,
+} from "@noriginmedia/norigin-spatial-navigation";
 import styled from "styled-components";
 
 const SettingsPage = () => {
-  const { ref } = useFocusable();
+  const { ref, focusKey } = useFocusable();
 
   const opptions = [
     "Account",
@@ -14,14 +16,20 @@ const SettingsPage = () => {
   ];
 
   return (
-    <Settings>
-      <h1>Settings</h1>
-      <div ref={ref}>
-        {opptions.map((option) => (
-          <SettingOption key={option} label={option} />
-        ))}
-      </div>
-    </Settings>
+    <FocusContext.Provider value={focusKey}>
+      <Settings>
+        <h1>Settings</h1>
+        <div ref={ref}>
+          {opptions.map((option, index) => (
+            <SettingOption
+              focusKey={`BUTTON-${index}`}
+              key={option}
+              label={option}
+            />
+          ))}
+        </div>
+      </Settings>
+    </FocusContext.Provider>
   );
 };
 
@@ -45,8 +53,16 @@ const Options = styled.div<{ focused: boolean }>`
   }
 `;
 
-const SettingOption = ({ label }: { label: string }) => {
-  const { ref, focused } = useFocusable();
+const SettingOption = ({
+  label,
+  focusKey,
+}: {
+  label: string;
+  focusKey: string;
+}) => {
+  const { ref, focused } = useFocusable({
+    focusKey,
+  });
 
   return (
     <Options ref={ref} focused={focused}>

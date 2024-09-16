@@ -57,6 +57,23 @@ const PlayerPage = ({ close }: { close?: () => void }) => {
     <>
       <TVPlayer
         // url="https://www.youtube.com/watch?v=SkVqJ1SGeL0"
+        config={{
+          file: {
+            attributes: {
+              crossOrigin: "anonymous",
+              "Access-Control-Allow-Origin": "*",
+            },
+            tracks: [
+              {
+                kind: "subtitles",
+                src: "https://psdcdn.churchofjesuschrist.org/p/sep-7-tabernacle-choir-tour-g1.vtt",
+                srcLang: "en",
+                default: true,
+                label: "DDD",
+              },
+            ],
+          },
+        }}
         url={hlsMEdia}
         subTitle={""}
         customButtons={customButtons}

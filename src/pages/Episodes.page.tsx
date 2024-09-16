@@ -10,6 +10,7 @@ import { Paths } from "../router/paths/path.routes";
 import { useCallback, useState } from "react";
 import Modal from "../components/ui/modal/modal";
 import PlayerPage from "./Player.page";
+import Details from "./details";
 
 // export const EpisodesContainer = styled.div`
 //   width: 100%;
@@ -46,6 +47,8 @@ export const EpisodesContainer = styled.div`
 const EpisodesPage = () => {
   const { ref, focusKey } = useFocusable({
     focusKey: "EPISODES",
+    autoRestoreFocus: true,
+    saveLastFocusedChild: true,
   });
 
   const onRowFocus = useCallback(
@@ -126,12 +129,18 @@ const EpisodeGrid = ({
 }) => {
   const { ref, focusKey } = useFocusable({
     onFocus,
+    saveLastFocusedChild: true,
   });
 
   const [showModal, setShowModal] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
 
   const toggleModal = () => {
-    setShowModal(!showModal);
+    setShowModal((value) => !value);
+  };
+
+  const togglePlayer = () => {
+    setShowPlayer((value) => !value);
   };
 
   return (
@@ -142,11 +151,18 @@ const EpisodeGrid = ({
         </EpisodesGridContainer>
       </FocusContext.Provider>
 
-      <Modal show={showModal} onClose={toggleModal}>
-        {/* <h2>This is a Modal</h2>
-        <p>Modal content goes here.</p> */}
-        <PlayerPage close={toggleModal} />
-      </Modal>
+      {showModal && (
+        <Modal show={showModal} onClose={toggleModal}>
+          {!showPlayer && (
+            <Details
+              showPlayer={() => setShowPlayer(true)}
+              onBack={toggleModal}
+            />
+          )}
+
+          {showPlayer && <PlayerPage close={togglePlayer} />}
+        </Modal>
+      )}
     </>
   );
 };
@@ -184,6 +200,7 @@ const Episode = ({
       // navigate(`${Paths.PLAYER}/${index}`);
       onSelect?.();
     },
+    saveLastFocusedChild: true,
   });
 
   return (

@@ -4,8 +4,8 @@ import AppLayout from "../layout/app-layout/app-layout";
 import HomePage from "../pages/Home.page";
 import SearchPage from "../pages/Search.page";
 import EpisodesPage from "../pages/Episodes.page";
-import PlayerPage from "../pages/Player.page";
 import SettingsPage from "../pages/Settings.page";
+import DetailsPage from "../pages/Details.page";
 
 export const AppRoutes: RouteObject[] = [
   {
@@ -18,5 +18,5 @@ export const AppRoutes: RouteObject[] = [
       { path: Paths.EPISODES, element: <EpisodesPage /> },
     ],
   },
-  { path: `${Paths.PLAYER}/:index`, element: <PlayerPage /> },
+  { path: `${Paths.PLAYER}/:index`, element: <DetailsPage /> },
 ];

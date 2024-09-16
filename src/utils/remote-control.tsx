@@ -83,6 +83,11 @@ const useRemoteControl = ({
           //   tizen.application.getCurrentApplication().exit();
           onBack();
           break;
+        case 8: // Back
+          /////@ts-expect-error
+          //   tizen.application.getCurrentApplication().exit();
+          onBack();
+          break;
         case 13: // Enter/OK
           onEnter();
           break;

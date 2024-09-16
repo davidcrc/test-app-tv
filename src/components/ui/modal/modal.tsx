@@ -16,12 +16,16 @@ const ModalBackground = styled.div`
 `;
 
 // Estilos del contenido del modal
-const ModalContent = styled.div<{ maxWidth?: string; fullscreen?: boolean }>`
-  background-color: white;
+const ModalContent = styled.div<{
+  maxWidth?: string;
+  full?: boolean;
+  backgroundColor?: string;
+}>`
+  background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
   // padding: 20px;
   border-radius: 4px;
   ${({ maxWidth }) => maxWidth && `max-width: ${maxWidth};`}
-  ${({ fullscreen }) => fullscreen && `width: 100%; height: 100vh;`}
+  ${({ full }) => full && `width: 100%; height: 100%;`}
   width: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -48,10 +52,14 @@ function Modal({
   show,
   onClose,
   children,
+  backgroundColor,
+  fullscreen = true,
 }: {
   show: boolean;
-  onClose: () => void;
   children: React.ReactNode;
+  onClose: () => void;
+  fullscreen?: boolean;
+  backgroundColor?: string;
 }) {
   if (!show) {
     return null;
@@ -59,7 +67,7 @@ function Modal({
 
   return (
     <ModalBackground>
-      <ModalContent fullscreen>
+      <ModalContent backgroundColor={backgroundColor} full={fullscreen}>
         {/* <CloseButton onClick={onClose}>&times;</CloseButton> */}
         {children}
       </ModalContent>

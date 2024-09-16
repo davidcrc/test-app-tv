@@ -12,4 +12,8 @@ export const AppContainer = styled.div`
 
 export const Content = styled.div`
   width: 92%;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 `;

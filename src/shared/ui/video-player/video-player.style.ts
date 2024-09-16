@@ -15,23 +15,59 @@ export const ControlsWrapperSliderVideo = styled.div`
   align-items: center;
   position: absolute;
   bottom: 0;
+  gap: 20px;
   width: 100%;
   height: 40px;
-  padding: 20px;
+  padding: 40px 20px;
+`;
+
+export const VideoOverlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(to top, #000 20%, transparent 100%);
+`;
+
+export const VideoPlayerControllers = styled.div`
+  min-height: 60px;
+  position: absolute;
+  bottom: 80px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+`;
+
+export const GoBackContainer = styled.div`
+  position: absolute;
+  left: 30px;
+  top: 30px;
 `;
 
 export const Button = styled.button`
-  margin: 0 10px;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: #000;
+  color: #fff;
+  width: 52px;
+  height: 54px;
   border: none;
   cursor: pointer;
-  font-size: 14px;
-
-  &:hover {
-    background-color: #0056b3;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover,
+  &:focus {
+    border: 1px solid #fff;
   }
+`;
+
+export const TimeVideo = styled.div`
+  color: #fff;
 `;
 
 export const SliderTime = styled.input`

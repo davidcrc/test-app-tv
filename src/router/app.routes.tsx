@@ -1,11 +1,11 @@
 import { RouteObject } from "react-router-dom";
 import { Paths } from "./paths/path.routes";
-import AppLayout from "../layout/app-layout/app-layout";
 import HomePage from "../pages/Home.page";
 import SearchPage from "../pages/Search.page";
 import EpisodesPage from "../pages/Episodes.page";
 import PlayerPage from "../pages/Player.page";
 import SettingsPage from "../pages/Settings.page";
+import AppLayout from "../shared/layout/app-layout/app-layout";
 
 export const AppRoutes: RouteObject[] = [
   {

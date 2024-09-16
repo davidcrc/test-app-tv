@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Menu } from "../../components/menu/menu";
-import { IAsset } from "../../components/content/asset";
 import { Outlet } from "react-router-dom";
 import { Episodes, Home, Search, Setting } from "../../assets/svg";
-import { Paths } from "../../router/paths/path.routes";
+import { Menu } from "../../../components/menu/menu";
+import { Paths } from "../../../router/paths/path.routes";
+import { IAsset } from "../../../components/content/asset";
 
 const menuItems = [
   { label: "Home", icon: Home, path: Paths.INDEX },

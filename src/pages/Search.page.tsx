@@ -1,5 +1,5 @@
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
-import Input from "../components/ui/input/input";
+import Input from "../shared/ui/input/input";
 
 const SearchPage = () => {
   const { ref, focused } = useFocusable();

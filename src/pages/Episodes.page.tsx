@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Paths } from "../router/paths/path.routes";
 import { useCallback, useState } from "react";
-import Modal from "../components/ui/modal/modal";
+import Modal from "../shared/ui/modal/modal";
 import PlayerPage from "./Player.page";
 
 // export const EpisodesContainer = styled.div`

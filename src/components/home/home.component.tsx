@@ -1,6 +1,5 @@
 import {
   FocusContext,
-  init,
   useFocusable,
 } from "@noriginmedia/norigin-spatial-navigation";
 import * as S from "./home.style";
@@ -11,11 +10,6 @@ import { ContentRow } from "./components/content-row";
 import { IAsset } from "./components/content-row/components/asset/types";
 
 const FOCUS_KEY = "CONTENT";
-
-init({
-  debug: false,
-  visualDebug: false,
-});
 
 export const Home = () => {
   const { ref, focusKey } = useFocusable({

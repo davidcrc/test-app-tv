@@ -6,6 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { GlobalStyle } from "./styles/global.style";
+import { init } from "@noriginmedia/norigin-spatial-navigation";
+
+init();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

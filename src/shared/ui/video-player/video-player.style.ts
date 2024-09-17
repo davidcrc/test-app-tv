@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { Button } from "../button";
 
 export const VideoPlayerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export const ControlsWrapperSliderVideo = styled.div`
@@ -21,11 +22,26 @@ export const ControlsWrapperSliderVideo = styled.div`
   padding: 40px 20px;
 `;
 
+export const VideoOverlayContainer = styled.div<{ $show: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  ${({ $show }) =>
+    !$show &&
+    `
+    visibility: hidden;
+  `}
+`;
+
 export const VideoOverlay = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   pointer-events: none;
+  top: 0;
+  left: 0;
   background: linear-gradient(to top, #000 20%, transparent 100%);
 `;
 
@@ -47,7 +63,7 @@ export const GoBackContainer = styled.div`
   top: 30px;
 `;
 
-export const Button = styled.button`
+export const StyledButton = styled(Button)`
   padding: 10px;
   background-color: #000;
   color: #fff;
@@ -61,7 +77,8 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   &:hover,
-  &:focus {
+  &:focus,
+  &[data-focused="true"] {
     border: 1px solid #fff;
   }
 `;
@@ -70,7 +87,12 @@ export const TimeVideo = styled.div`
   color: #fff;
 `;
 
-export const SliderTime = styled.input`
+export const SliderTime = styled.input<{ $focused?: boolean }>`
+  ${({ $focused }) =>
+    $focused &&
+    `
+    border: 1px solid #dedede;
+  `}
   -webkit-appearance: none; /* Elimina el estilo predeterminado en navegadores WebKit */
   width: 100%;
   height: 8px;
@@ -122,6 +144,6 @@ export const Slider = styled.input`
 
 export const Video = styled.video`
   width: 100%;
-  height: auto;
+  height: 100%;
   background-color: black;
 `;
